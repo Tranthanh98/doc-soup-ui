@@ -1,0 +1,207 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.separatorLine {
+  background: #dadada;
+  width: 100%;
+  height: 1px;
+}
+
+.fileListSwapper .ms-DetailsList {
+  overflow: visible;
+}
+
+.viewerFileWrapper .ms-DetailsList {
+  overflow: visible;
+}
+
+.progress-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-chart .circle-bg {
+  fill: none;
+  stroke: #dadada;
+}
+
+.progress-chart .circle {
+  fill: none;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.progress-chart .percentageValue {
+  font-weight: 500;
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.progress-chart .percentage {
+  font-size: 5px;
+  text-anchor: middle;
+}
+
+.progress-chart .label {
+  display: inline-block;
+  font-size: x-small;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
+.barChartWrapper {
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.barChartWrapper > div {
+  position: initial !important;
+}
+
+.resizable-right-line {
+  right: -10px !important;
+}
+
+.resizable-right-line:hover {
+  border-left: 2px solid #c8c8c8;
+}
+
+.action-btn-overlay {
+  display: none;
+}
+
+.details-row:hover .action-btn-overlay {
+  display: block;
+  border: none;
+  background: transparent;
+}
+
+@media (max-width: 360.9px) {
+  .hiddenSm,
+  .hiddenMdDown,
+  .hiddenLgDown,
+  .hiddenXlDown,
+  .hiddenXxlDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 767.9px) {
+  .hiddenMd,
+  .hiddenMdUp,
+  .hiddenMdDown,
+  .hiddenLgDown,
+  .hiddenXlDown,
+  .hiddenXxlDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .hiddenMdUp,
+  .hiddenLg,
+  .hiddenLgUp,
+  .hiddenLgDown,
+  .hiddenXlDown,
+  .hiddenXxlDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439.9px) {
+  .hiddenMdUp,
+  .hiddenLgUp,
+  .hiddenXl,
+  .hiddenXlUp,
+  .hiddenXlDown,
+  .hiddenXxlDown {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hiddenMdUp,
+  .hiddenLgUp,
+  .hiddenXlUp,
+  .hiddenXxl,
+  .hiddenXxlUp,
+  .hiddenXxlDown {
+    display: none !important;
+  }
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #7ac142;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "realm": "docsoup",
+  "auth-server-url": "https://doc-soup-portal.logixtek.com/auth/",
+  "ssl-required": "external",
+  "resource": "doc-soup-ui",
+  "public-client": true,
+  "confidential-port": 0
+}
