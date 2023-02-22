@@ -1,0 +1,8 @@
+{
+  "realm": "docsoupdev",
+  "auth-server-url": "http://localhost:8080/auth/",
+  "ssl-required": "external",
+  "resource": "doc-soup-ui",
+  "public-client": true,
+  "confidential-port": 0
+}

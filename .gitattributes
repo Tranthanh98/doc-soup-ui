@@ -1,0 +1,23 @@
+# Auto detect text files and perform LF normalization
+*        text=auto eol=auto
+
+*.cs     text diff=csharp
+*.java   text diff=java
+*.html   text diff=html
+*.css    text
+*.scss   text
+*.js     text
+*.sql    text
+*.json    text
+
+*.csproj text merge=union
+*.sln    text merge=union eol=crlf
+
+*.docx   diff=astextplain
+*.DOCX   diff=astextplain
+
+# absolute paths are ok, as are globs
+/**/postinst* text eol=crlf
+
+# paths that don't start with / are treated relative to the .gitattributes folder
+relative/path/*.txt text eol=crlf

@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+.next
+__mocks__
+public
+coverage
+src/serviceWorker.js
+src/service-worker.js

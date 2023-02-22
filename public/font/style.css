@@ -1,0 +1,98 @@
+/* SourceHanSansKR-100 - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('./SourceHanSansKR-100.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-100.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-100.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-100.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-100.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}
+/* SourceHanSansKR-300 - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./SourceHanSansKR-300.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-300.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-300.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}
+/* SourceHanSansKR-regular - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./SourceHanSansKR-regular.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-regular.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-regular.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}
+/* SourceHanSansKR-500 - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./SourceHanSansKR-500.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-500.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-500.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}
+/* SourceHanSansKR-600 - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./SourceHanSansKR-500.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-500.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-500.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}
+/* SourceHanSansKR-700 - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./SourceHanSansKR-700.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-700.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-700.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}
+/* SourceHanSansKR-900 - latin_korean */
+@font-face {
+  font-family: 'SourceHanSansKR';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('./SourceHanSansKR-900.eot'); /* IE9 Compat Modes */
+  src: local('SourceHanSansKR'),
+       url('./SourceHanSansKR-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./SourceHanSansKR-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./SourceHanSansKR-900.woff') format('woff'), /* Modern Browsers */
+       url('./SourceHanSansKR-900.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./SourceHanSansKR-900.svg#SourceHanSansKR') format('svg'); /* Legacy iOS */
+}

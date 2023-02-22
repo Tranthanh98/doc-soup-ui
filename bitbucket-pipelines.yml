@@ -1,0 +1,33 @@
+#  Template NodeJS build
+
+#  This template allows you to validate your NodeJS code.
+#  The workflow allows running tests and code linting on the default branch.
+
+image: node:10.15.3
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Build and Test
+            caches:
+              - node
+            script:
+              - npm install
+              - npm build
+        #- step: &sonar
+        #    name: Analyze code with Sonarqube
+        #    caches:
+        #      - node
+        #    script:
+        #      - npm install -g sonarqube-scanner
+        #      - npm install
+        #      - npm build
+        #      - sonar-scanner -Dsonar.sources=. -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_API_TOKEN -Dsonar.projectKey=doc-soup-ui -Dsonar.projectName=doc-soup-ui
+        - step:
+            name: Code linting
+            script:
+              - npm install
+              - npm run lint
+            caches:
+              - node
