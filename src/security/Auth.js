@@ -9,7 +9,7 @@ class Auth extends Component {
 
     const { REACT_APP_PROFILE } = process.env;
 
-    const keycloak = Keycloak(`/${REACT_APP_PROFILE}.json`);
+    const keycloak = new Keycloak(`/${REACT_APP_PROFILE}.json`);
 
     keycloak.init({ onLoad: 'check-sso', checkLoginIframe: false }).then((authenticated) => {
       setAuthenticated(authenticated);

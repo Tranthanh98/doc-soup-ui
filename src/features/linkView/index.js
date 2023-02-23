@@ -15,6 +15,7 @@ import { PreviewFileFrame } from 'core/components';
 import { ERROR_MESSAGE } from 'core/constants/Resource';
 import { error } from 'features/shared/components/ToastMessage';
 import SockJsClient from 'features/shared/lib/SockJsClient';
+import PdfViewerComponent from 'core/components/PdfViewerComponent';
 
 const textStyles = { root: { color: LIGHT_THEME.palette.neutralSecondaryAlt } };
 
@@ -481,7 +482,8 @@ class LinkView extends Component {
     if (secureValues?.docId) {
       return (
         <div style={{ height: '100vh' }}>
-          <PreviewFileFrame fileInfo={secureValues} />
+          {/* <PreviewFileFrame fileInfo={secureValues} /> */}
+          <PdfViewerComponent document="%PUBLIC_URL%/document.pdf"/>
           <SockJsClient
             url={process.env.REACT_APP_SOCKET_URL}
             ref={this.webSocketRef}

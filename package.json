@@ -19,6 +19,7 @@
     "formik": "2.2.9",
     "keycloak-js": "20.0.5",
     "little-loader": "0.2.0",
+    "pspdfkit": "^2023.1.1",
     "re-resizable": "6.9.1",
     "react": "17.0.2",
     "react-app-polyfill": "2.0.0",

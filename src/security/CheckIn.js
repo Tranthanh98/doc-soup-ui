@@ -2,6 +2,7 @@ import { Component } from 'react';
 import RestService from 'features/shared/services/restService';
 import GlobalContext from 'security/GlobalContext';
 import { COMPANY_USER_STATUS } from 'core/constants/Const';
+import PdfViewerComponent from 'core/components/PdfViewerComponent';
 
 const BAD_REQUEST_STATUS = 400;
 
@@ -98,6 +99,7 @@ class CheckIn extends Component {
 
     if (checkIn) {
       return null;
+      // return <PdfViewerComponent document="document.pdf"/>
     }
     return { ...children };
   }
