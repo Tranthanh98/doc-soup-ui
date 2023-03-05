@@ -38,12 +38,12 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const context = useContext(GlobalContext);
 
   const [userInfo, setUserInfo] = useState({});
-  const { isMobile } = context;
+  const { isMobile, getToken, getUserInfo } = context;
 
   const _deactive = (row) => {
     new RestService()
       .setPath(`/company/${companyId}/user/${row.userId}/de-active`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success('User deactivated.');
@@ -55,7 +55,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _active = (row) => {
     new RestService()
       .setPath(`/company/${companyId}/user/${row.userId}/re-active`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success('User reactivated.');
@@ -67,7 +67,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _makeOwner = (row) => {
     new RestService()
       .setPath(`/company/${companyId}/user/${row.userId}/make-owner`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success(`${row.email} is now an Owner of your company.`);
@@ -79,7 +79,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _makeMember = (row) => {
     new RestService()
       .setPath(`/company/${companyId}/user/${row.userId}/make-member`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success(`${row.email} was demoted from Admin to Member.`);
@@ -91,7 +91,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _suspended = (row) => {
     new RestService()
       .setPath(`/company/${companyId}/user/${row.userId}/suspend`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success(`User suspended successfully.`);
@@ -103,7 +103,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _unsuspended = (row) => {
     new RestService()
       .setPath(`/company/${companyId}/user/${row.userId}/unsuspend`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success(`User unsuspend successfully.`);
@@ -115,7 +115,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _unInvite = (row) => {
     new RestService()
       .setPath(`/company/user/cancel-invitation/${row.id}`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success(`${row.email} has been uninvited`);
@@ -127,7 +127,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   const _resendInvite = (row) => {
     new RestService()
       .setPath(`/company/user/resend-invitation/${row.id}`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put()
       .then(() => {
         success(`Invite resent to ${row.email}`);
@@ -141,7 +141,7 @@ export default function UserListStatus({ transferData, onChangeStatus, status, u
   }, [status, onChangeStatus]);
 
   useEffect(() => {
-    context.getUserInfo().then((res) => {
+    getUserInfo().then((res) => {
       setUserInfo(res);
     });
   }, []);

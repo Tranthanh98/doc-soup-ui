@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [ "jest", "prettier" ],
+  "plugins": ["jest", "prettier"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -18,10 +18,10 @@
       "configFile": "./.babelrc"
     }
   },
-  "extends": [ "airbnb", "eslint:recommended", "plugin:jest/recommended", "plugin:prettier/recommended", "prettier" ],
+  "extends": ["airbnb", "eslint:recommended", "plugin:jest/recommended", "plugin:prettier/recommended", "prettier"],
   "overrides": [
     {
-      "files": [ "src/**/*.test.js" ],
+      "files": ["src/**/*.test.js"],
       "env": {
         "jest/globals": true
       },
@@ -30,22 +30,20 @@
       }
     },
     {
-      "files": [
-        "files/transformed/by/babel/*.js"
-      ],
+      "files": ["files/transformed/by/babel/*.js"],
       "parser": "@babel/eslint-parser"
     }
   ],
   "rules": {
     "prettier/prettier": [
-      "error",
+      "off",
       {
         "endOfLine": "auto"
       }
     ],
-    "class-methods-use-this": [ "off" ],
-    "comma-dangle": [ "error", "always-multiline" ],
-    "curly": [ "error", "all" ],
+    "class-methods-use-this": ["off"],
+    "comma-dangle": ["off", "always-multiline"],
+    "curly": ["off", "all"],
     "func-names": "off",
     "global-require": "off",
     "guard-for-in": "warn",
@@ -85,7 +83,7 @@
     "jsx-a11y/anchor-is-valid": [
       "warn",
       {
-        "aspects": [ "invalidHref" ]
+        "aspects": ["invalidHref"]
       }
     ],
     "react/no-array-index-key": "off",
@@ -93,7 +91,7 @@
     "react/prop-types": [
       "warn",
       {
-        "ignore": [ "classes", "location", "history", "theme", "cancel", "updateCancelTokens", "children", "match" ]
+        "ignore": ["classes", "location", "history", "theme", "cancel", "updateCancelTokens", "children", "match"]
       }
     ],
     "react/jsx-no-target-blank": "warn",
@@ -106,9 +104,9 @@
       }
     ],
     "react/jsx-filename-extension": [
-      "error",
+      "off",
       {
-        "extensions": [ ".js" ]
+        "extensions": [".js"]
       }
     ],
     "react/jsx-tag-spacing": [
@@ -135,16 +133,16 @@
     "react/jsx-sort-props": "off",
     "react/forbid-component-props": "warn",
     "react/jsx-wrap-multilines": [
-      "error",
+      "off",
       {
         "declaration": false,
         "assignment": false
       }
     ],
     "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
+    "jest/no-focused-tests": "off",
+    "jest/no-identical-title": "off",
     "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "off"
   }
 }

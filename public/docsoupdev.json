@@ -3,12 +3,8 @@
   "auth-server-url": "http://localhost:8080/",
   "ssl-required": "external",
   "resource": "docsoup-ui",
-  "clientId": "docsoup-ui",
+  "public-client": true,
   "verify-token-audience": true,
-  "credentials": {
-    "secret": "PF9GF71ZlLMfhKq19Wo0z5lBJtIh87Rp"
-  },
   "use-resource-role-mappings": true,
-  "confidential-port": 0,
-  "policy-enforcer": {}
+  "confidential-port": 0
 }

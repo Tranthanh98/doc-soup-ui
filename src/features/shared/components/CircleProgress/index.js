@@ -9,7 +9,7 @@ export default function CircleProgress(props) {
   const cir = 2 * raidus * Math.PI;
   const calculatedPercentValue = cir - (cir * percent) / 100;
   return (
-    <svg width="30" height="30" view-box="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+    <svg width="30" height="30" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
       <path style={{ fill: 'none', stroke: LIGHT_THEME.semanticColors.bodyDivider }} d={pathD} strokeWidth="7" />
       <path
         style={{

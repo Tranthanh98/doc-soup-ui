@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@fluentui/react": "8.23.7",
+    "@googleapis/drive": "^5.0.0",
     "@nivo/bar": "0.73.1",
     "@nivo/core": "0.73.0",
     "@nivo/line": "0.73.0",
@@ -68,6 +69,7 @@
     "mocha": "^5.0.0",
     "nan": "^2.15.0",
     "prettier": "^2.3.2",
+    "react-error-overlay": "6.0.9",
     "serve": "^12.0.0",
     "supertest": "^3.0.0",
     "typescript": "^4.3.5",

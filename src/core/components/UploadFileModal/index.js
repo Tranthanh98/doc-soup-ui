@@ -281,7 +281,11 @@ class UploadFileModal extends Component {
     formData.append('displayName', file.name);
     formData.append('multipartFile', file);
 
-    return new RestService().setPath('/file').setToken(getToken()).post(formData);
+    return new RestService()
+      .setPath('/file')
+      .setHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+      .setToken(getToken())
+      .post(formData);
   };
 
   _onReloadUploadFile = async (file, fileIndex) => {

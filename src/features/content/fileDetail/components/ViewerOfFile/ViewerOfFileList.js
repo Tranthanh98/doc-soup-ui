@@ -260,6 +260,8 @@ function ViewerOfFileList({ fileId, version, ...props }) {
 
   const context = useContext(GlobalContext);
 
+  const { getToken } = context;
+
   const params = useParams();
 
   const webSocketRef = useRef();
@@ -292,7 +294,7 @@ function ViewerOfFileList({ fileId, version, ...props }) {
     setLoading(true);
     new RestService()
       .setPath(`/file/${id || params.id}/viewer?page=${pagination.page}&pageSize=${pagination.pageSize}`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .get()
       .then((response) => {
         const { items, page, totalPages } = response.data;
@@ -464,7 +466,7 @@ function ViewerOfFileList({ fileId, version, ...props }) {
       <PageStatisticOfViewerOnFile
         item={item}
         fileId={fileId}
-        getToken={context.getToken}
+        getToken={getToken}
         onRenderVisitData={visitData}
         totalPages={pagination.totalPages}
         version={version}
