@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-lines */
+/* eslint no-unsafe-optional-chaining: ["error", { "disallowArithmeticOperators": true }] */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RestService from 'features/shared/services/restService';
