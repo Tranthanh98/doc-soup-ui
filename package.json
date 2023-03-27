@@ -3,6 +3,10 @@
   "description": "Doc Soup application",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "16.14.0",
+    "yarn": "1.22.17"
+  },
   "dependencies": {
     "@fluentui/react": "8.23.7",
     "@googleapis/drive": "^5.0.0",
