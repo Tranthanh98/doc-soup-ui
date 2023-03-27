@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable max-lines */
 /* eslint no-unsafe-optional-chaining: ["error", { "disallowArithmeticOperators": true }] */
