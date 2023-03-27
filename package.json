@@ -89,7 +89,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
     "build:dev": "dotenv -e .\\.env.development -e .\\.env -- react-app-rewired build",
     "build:aws-dev": "dotenv -e .\\.env.aws.development -e .\\.env -- react-app-rewired build",
     "build:default": "react-app-rewired build",
