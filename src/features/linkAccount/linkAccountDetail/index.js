@@ -69,9 +69,9 @@ function LinkAccountDetail() {
   const [isOpenMergeModal, setOpenMergeModal] = useState(false);
   const { id } = useParams();
   const context = useContext(GlobalContext);
+  const { getToken } = context;
 
   const _getLinkAccount = () => {
-    const { getToken } = context;
     new RestService()
       .setPath(`/link/link-account/${id}`)
       .setToken(getToken())
@@ -91,7 +91,7 @@ function LinkAccountDetail() {
   const _archiveAccount = () => {
     new RestService()
       .setPath(`/link/link-account/${id}/status`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .put({
         archived: !linkAccount.archived,
       })

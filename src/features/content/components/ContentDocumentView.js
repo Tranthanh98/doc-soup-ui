@@ -54,6 +54,8 @@ export default function ContentDocumentView(props) {
 
   const context = useContext(GlobalContext);
 
+  const { isTablet, isMobile } = context;
+
   const [displayMobileRootFolder, setDisplayRootFolder] = useState(false);
 
   const refBackBtn = React.useRef();
@@ -62,7 +64,7 @@ export default function ContentDocumentView(props) {
     (teamFolders && teamFolders.length < 1 && myFolders && myFolders.length < 1) ||
     (subfolders && subfolders.length < 1);
 
-  const resizableWidth = context.isTablet ? folderTreeWidthTablet : folderTreeWidth;
+  const resizableWidth = isTablet ? folderTreeWidthTablet : folderTreeWidth;
 
   const _switchRootFolder = (isTeam) => {
     onSelectFolder({ id: 0, key: 0, name: isTeam ? STRING.TEAM_FOLDERS : STRING.MY_FOLDERS, isTeam });
@@ -147,7 +149,7 @@ export default function ContentDocumentView(props) {
         <Separator vertical />
       </Stack>
 
-      <Stack.Item grow style={{ paddingLeft: context.isMobile ? 0 : 20 }} styles={contentWrapperStyles}>
+      <Stack.Item grow style={{ paddingLeft: isMobile ? 0 : 20 }} styles={contentWrapperStyles}>
         <Stack
           horizontal
           verticalAlign="center"
@@ -172,7 +174,7 @@ export default function ContentDocumentView(props) {
             </Text>
           </Stack.Item>
           <ContentManagerButtons
-            isMobile={context.isMobile}
+            isMobile={isMobile}
             onAddBtnClick={() => initAddUpdateFolder()}
             onToggleDialog={onToggle}
           />

@@ -212,7 +212,7 @@ const renderGroupHeader = (props) => {
 function StatisticLinkDetail({ item, version, ...props }) {
   const [groups, setGroups] = useState([]);
   const context = useContext(GlobalContext);
-  const { isMobile, isTablet } = context;
+  const { isMobile, isTablet, getToken } = context;
 
   const { linkId } = item;
 
@@ -220,7 +220,7 @@ function StatisticLinkDetail({ item, version, ...props }) {
     if (linkId) {
       new RestService()
         .setPath(`/link/${linkId}/viewer`)
-        .setToken(context.getToken())
+        .setToken(getToken())
         .get()
         .then((response) => {
           const displayItems = FileBiz.standardizeViewersOfFile(response.data);
@@ -254,7 +254,7 @@ function StatisticLinkDetail({ item, version, ...props }) {
         viewerId={group.viewerId}
         item={group}
         version={version}
-        getToken={context.getToken}
+        getToken={getToken}
         downloadNDAFile={_handleDownloadNDAFile}
       />
     );

@@ -69,12 +69,13 @@ const renderGroupHeader = (props) => {
 // eslint-disable-next-line react/no-multi-comp
 export default function BillingHistory({ totalUsers }) {
   const context = useContext(GlobalContext);
+  const { getToken, isMobile } = context;
 
   const [billingList, setBillingList] = useState();
   const _getBilling = () => {
     new RestService()
       .setPath('/billing')
-      .setToken(context.getToken())
+      .setToken(getToken())
       .get()
       .then((res) => {
         const sortedData = res.data.sort((a, b) => {
@@ -108,7 +109,7 @@ export default function BillingHistory({ totalUsers }) {
   const _sendEmailInvoice = (paymentHistoryId) => {
     new RestService()
       .setPath(`/billing/${paymentHistoryId}/send-invoice`)
-      .setToken(context.getToken())
+      .setToken(getToken())
       .post({})
       .then(() => {
         success('Your invoice is on its way to your email');
@@ -122,7 +123,7 @@ export default function BillingHistory({ totalUsers }) {
   const columnSchemaConfig = useMemo(() => {
     const config = [...columnsSchema(totalUsers)];
 
-    if (!context.isMobile) {
+    if (!isMobile) {
       config.splice(1, 0, {
         key: 'quantity',
         name: 'QTY',
@@ -182,7 +183,7 @@ export default function BillingHistory({ totalUsers }) {
     }
 
     return config;
-  }, [context.isMobile]);
+  }, [isMobile]);
 
   return (
     <ThemeContext.Consumer>

@@ -24,6 +24,8 @@ export default function PayItems(props) {
   const context = useContext(GlobalContext);
   const history = useHistory();
 
+  const { getToken } = context;
+
   const totalPaidSeat = totalUsers - planDetail.initialSeat < 0 ? 0 : totalUsers - planDetail.initialSeat;
 
   const [currentPaypalSubscription, setCurrentSubscription] = useState(undefined);
@@ -33,7 +35,7 @@ export default function PayItems(props) {
     setLoading(true);
     new RestService()
       .setPath('/billing/current-paypal-subscription')
-      .setToken(context.getToken())
+      .setToken(getToken())
       .get()
       .then((res) => {
         if (res.data) {
@@ -97,7 +99,7 @@ export default function PayItems(props) {
 
     new RestService()
       .setPath('/payment/upgrade-downgrade')
-      .setToken(context.getToken())
+      .setToken(getToken())
       .post(request)
       .then((res) => {
         if (res.data) {

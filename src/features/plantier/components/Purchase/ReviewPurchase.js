@@ -28,6 +28,8 @@ export default function ReviewPurchase() {
 
   const context = useContext(GlobalContext);
 
+  const { getToken } = context;
+
   const [planDetail, setPlanDetail] = useState({
     initialFee: 0,
     initialSeat: 0,
@@ -40,7 +42,7 @@ export default function ReviewPurchase() {
   const _getPlanTierDetail = () => {
     new RestService()
       .setPath('/plan-tier')
-      .setToken(context.getToken())
+      .setToken(getToken())
       .get()
       .then((res) => {
         const selectedPlan = res.data.find((i) => i.id === parseInt(id, 10));

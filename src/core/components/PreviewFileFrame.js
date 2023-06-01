@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import RestService from 'features/shared/services/restService';
 import restServiceHelper from 'features/shared/lib/restServiceHelper';
@@ -8,15 +8,20 @@ import { useParams } from 'react-router-dom';
 import { debounce } from 'lodash';
 import PreviewFileFrameBiz from 'core/biz/PreviewFileFrameBiz';
 import { Document, Page } from 'react-pdf';
+import GlobalContext from 'security/GlobalContext';
+import { LoadingPage } from 'features/shared/components';
+import PdfViewerComponent from './PdfViewerComponent';
 
 const twoMinutes = 120000;
 
 export default function PreviewFileFrame(props) {
   const { fileInfo, isFilePreview } = props;
 
-  const [pageNumber, setPageNumber] = useState(1);
+  const [contentData, setContentData] = useState(null);
 
-  const { viewerId, docId } = fileInfo;
+  const context = useContext(GlobalContext);
+
+  const { fileId, docId } = fileInfo;
   const { linkId } = useParams();
   const readSessionId = uuidv4();
   let pageDurationInfo = [0];
@@ -114,92 +119,28 @@ export default function PreviewFileFrame(props) {
     }
   };
 
-  const _openDocument = (streamdocs) => {
-    if (!currentPageInfo.viewingStartDate) {
-      currentPageInfo.viewingStartDate = new Date();
-    }
+  const _openDocument = () => {
+    const { getToken } = context;
 
-    const streamdocsId = docId || fileInfo?.docId;
-    streamdocs.document
-      .open({ streamdocsId })
-      .then(() => {
-        streamdocs.document.getPageCount().then(async (pageInfo) => {
-          await initialPageDurationInfo(pageInfo.pageCount);
-        });
-        return streamdocs.document.getPageCount();
+    new RestService()
+      .setPath(`file/${fileId}/download`)
+      .setToken(getToken())
+      .setResponseType('arraybuffer')
+      .get()
+      .then((response) => {
+        const URL = window.URL || window.webkitURL;
+        const type = response.headers['content-type'];
+        const url = URL.createObjectURL(new Blob([response.data], { type, encoding: 'UTF-8' }));
+        console.log('data:', url);
+        setContentData(url);
       })
-      .then(() => {
-        return streamdocs.viewer.getCurrentPageIndex();
-      })
-      .then(async (result) => {
-        if (!isFilePreview) {
-          await onChangeCurrentPageIndex(result.currentPageIndex);
-          streamdocs.addEventListener('currentPageIndexChange', async (event) => {
-            await onChangeCurrentPageIndex(event.data.currentPageIndex);
-          });
-        }
-      })
-      .then(function () {
-        console.log('Document opened.');
-        streamdocs.addEventListener('documentDownload', function () {
-          downloadedFile();
-        });
-        return _createWatermark(streamdocs);
-      })
-      .then(function () {
-        console.log('Temporary watermark created.');
-      })
-      .catch(function (error) {
-        console.error('Error name:', error.name);
-        console.error('Error message:', error.message);
+      .catch((err) => {
+        window.alert('Download file failed: ', err.message);
       });
   };
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = `${process.env.REACT_APP_EPAPYRUS_SERVICE_URL}/adapter.js`;
-    script.async = true;
-    script.onload = () => {
-      const viewerElement = document.getElementById('viewer');
-      // eslint-disable-next-line no-undef
-      const streamdocs = new StreamDocs({
-        element: viewerElement,
-      });
-      _openDocument(streamdocs);
-
-      let lastActiveElement = document.activeElement;
-      window.addEventListener('focus', () => {
-        if (lastActiveElement === viewerElement) {
-          return;
-        }
-
-        const newPageInfo = PreviewFileFrameBiz.startRecordingCurrentPageDuration(undefined, currentPageInfo);
-        currentPageInfo = { ...newPageInfo };
-        lastActiveElement = document.activeElement;
-      });
-
-      window.addEventListener('blur', () => {
-        if (document.activeElement === viewerElement) {
-          return;
-        }
-
-        const newPageDurationInfo = PreviewFileFrameBiz.calculateCurrentPageDuration(currentPageInfo, pageDurationInfo);
-        if (newPageDurationInfo) {
-          pageDurationInfo = newPageDurationInfo;
-        }
-        lastActiveElement = document.activeElement;
-      });
-    };
-
-    document.body.appendChild(script);
-    if (!isFilePreview) {
-      setInterval(async () => {
-        await _saveStatisticData(undefined);
-      }, twoMinutes);
-    }
-    return () => {
-      document.body.removeChild(script);
-    };
+    _openDocument();
   }, []);
 
   return (

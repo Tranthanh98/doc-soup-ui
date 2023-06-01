@@ -67,6 +67,8 @@ export default function CreateLinkForm(props) {
 
   const context = useContext(GlobalContext);
 
+  const { getToken, isMobile } = context;
+
   const { values, onChange, onSetLinkAccountName, errors, documentId } = props;
 
   const _toggleModal = (name) => {
@@ -122,7 +124,7 @@ export default function CreateLinkForm(props) {
     if (documentId) {
       new RestService()
         .setPath(`/file/${documentId}/thumb/1`)
-        .setToken(context.getToken())
+        .setToken(getToken())
         .setResponseType('arraybuffer')
         .get()
         .then(({ data }) => {
@@ -133,7 +135,7 @@ export default function CreateLinkForm(props) {
     } else {
       new RestService()
         .setPath('/file/latest-document-thumbnail')
-        .setToken(context.getToken())
+        .setToken(getToken())
         .setResponseType('arraybuffer')
         .get()
         .then(({ data }) => {
@@ -165,7 +167,7 @@ export default function CreateLinkForm(props) {
     <ThemeContext.Consumer>
       {(theme) => (
         <>
-          <Stack grow horizontal={!context.isMobile} tokens={{ childrenGap: 20 }}>
+          <Stack grow horizontal={!isMobile} tokens={{ childrenGap: 20 }}>
             <Stack grow disableShrink tokens={{ childrenGap: theme.spacing.m }} styles={sectionStyles}>
               <Text block variant="mediumPlus" styles={titleSectionStyles}>
                 Basic Settings
@@ -249,7 +251,7 @@ export default function CreateLinkForm(props) {
                 </Stack>
               </Stack.Item>
             </Stack>
-            <Separator vertical={!context.isMobile} styles={context.isMobile ? { root: { height: 1 } } : undefined} />
+            <Separator vertical={!isMobile} styles={isMobile ? { root: { height: 1 } } : undefined} />
             <Stack grow disableShrink tokens={{ childrenGap: theme.spacing.m }} styles={sectionStyles}>
               <Text block variant="mediumPlus" styles={titleSectionStyles}>
                 Advanced Settings

@@ -37,13 +37,15 @@ class FilePreview extends Component {
 
   render() {
     const { isLoading, docId } = this.state;
+    const { match } = this.props;
+    const { id } = match.params;
     if (isLoading) {
       return <LoadingPage />;
     }
-    if (docId) {
-      return <PreviewFileFrame fileInfo={{ docId }} isFilePreview />;
-    }
-    return <ErrorPage.DocumentNotAvailable />;
+    return <PreviewFileFrame fileInfo={{ docId, fileId: id }} isFilePreview />;
+    // if (docId) {
+    // }
+    // return <ErrorPage.DocumentNotAvailable />;
   }
 }
 FilePreview.contextType = GlobalContext;

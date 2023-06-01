@@ -20,6 +20,8 @@ function VisitorsOfLinkAccount() {
   const { id } = useParams();
   const context = useContext(GlobalContext);
 
+  const { isMobile } = context;
+
   const _getVisitors = () => {
     const { getToken } = context;
     const url = `/link/link-account/${id}/visitor?page=${pagination.page}&pageSize=${pagination.pageSize}`;
@@ -39,16 +41,16 @@ function VisitorsOfLinkAccount() {
   }, [id, pagination.page]);
 
   const columnSchema = useMemo(() => {
-    const config = [...columnConfig(context.isMobile)];
+    const config = [...columnConfig(isMobile)];
 
-    if (!context.isMobile) {
+    if (!isMobile) {
       config.splice(1, 0, locationColumnConfig);
 
       config.splice(3, 0, lastVisitColumnConfig);
     }
 
     return config;
-  }, [context.isMobile]);
+  }, [isMobile]);
 
   if (items && items?.length === 0) {
     return (

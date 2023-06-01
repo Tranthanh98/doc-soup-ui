@@ -3,8 +3,13 @@
   "description": "Doc Soup application",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": "16.14.0",
+    "yarn": "1.22.17"
+  },
   "dependencies": {
     "@fluentui/react": "8.23.7",
+    "@googleapis/drive": "^5.0.0",
     "@nivo/bar": "0.73.1",
     "@nivo/core": "0.73.0",
     "@nivo/line": "0.73.0",
@@ -19,6 +24,7 @@
     "formik": "2.2.9",
     "keycloak-js": "20.0.5",
     "little-loader": "0.2.0",
+    "net": "^1.0.2",
     "pspdfkit": "^2023.1.1",
     "re-resizable": "6.9.1",
     "react": "17.0.2",
@@ -32,7 +38,7 @@
     "react-redux": "7.2.4",
     "react-router-dom": "5.2.0",
     "react-script": "2.0.5",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "react-toastify": "8.1.0",
     "rimraf": "3.0.2",
     "sockjs-client": "1.6.1",
@@ -68,6 +74,7 @@
     "mocha": "^5.0.0",
     "nan": "^2.15.0",
     "prettier": "^2.3.2",
+    "react-error-overlay": "6.0.9",
     "serve": "^12.0.0",
     "supertest": "^3.0.0",
     "typescript": "^4.3.5",
