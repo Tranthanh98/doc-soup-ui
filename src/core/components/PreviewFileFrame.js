@@ -203,17 +203,17 @@ export default function PreviewFileFrame(props) {
   }, []);
 
   return (
-    // <iframe
-    //   title="view document"
-    //   id="viewer"
-    //   src={`${process.env.REACT_APP_EPAPYRUS_SERVICE_URL}/view/sd`}
-    //   style={{ width: '100%', height: '100vh', border: 0 }}
-    // />
-    <div>
-      <Document file="somefile.pdf" onLoadSuccess={({ numPages }) => setPageNumber(numPages)}>
-        <Page pageNumber={pageNumber} />
-      </Document>
-    </div>
+    <iframe
+      title="view document"
+      id="viewer"
+      src={`${process.env.REACT_APP_EPAPYRUS_SERVICE_URL}/view/sd`}
+      style={{ width: '100%', height: '100vh', border: 0 }}
+    />
+    // <div>
+    //   <Document file="somefile.pdf" onLoadSuccess={({ numPages }) => setPageNumber(numPages)}>
+    //     <Page pageNumber={pageNumber} />
+    //   </Document>
+    // </div>
   );
 }
 PreviewFileFrame.propTypes = {
